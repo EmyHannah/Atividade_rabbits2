@@ -49,7 +49,7 @@ Execute em um terminal o código do produtor:
     python new_task.py Mensagem.
     python new_task.py Outra mensagem...
 ````
-4. Se desejar executar mais de um consumidor receba mensagens:
+4. Se desejar executar que vários consumidores recebam mensagens:
    Exemplo: 5 consumidores
    Execute 5 worker.py em 5 terminais diferentes para os 5 consumidores:
    ```bash
