@@ -53,19 +53,25 @@ Execute em um terminal o código do produtor:
    Exemplo: 5 consumidores
    Execute 5 worker.py em 5 terminais diferentes para os 5 consumidores:
    ```bash
-   #shell1 python worker.py
-   #shell2 python worker.py
-   #shell3 python worker.py
-   #shell4 python worker.py
-   #shell5 python worker.py
+   #shell1
+   python worker.py
+   #shell2
+   python worker.py
+   #shell3
+   python worker.py
+   #shell4
+   python worker.py
+   #shell5
+   python worker.py
    ````
    Agora abra 1 terminal novo para executar o código do produtor:
    digite as mensagens que você desejar
 
    ````bash
-   #shell6 python new_task Primeira Mensagem
-           python new_task Segunda Mensagem
-           python new_task Terceira Mensagem
-           python new_task Quarta Mensagem
-           python new_task Quinta Mensagem
+   #shell6
+   python new_task Primeira Mensagem
+   python new_task Segunda Mensagem
+   python new_task Terceira Mensagem
+   python new_task Quarta Mensagem
+   python new_task Quinta Mensagem
    ````
