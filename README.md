@@ -8,9 +8,9 @@ Neste tutorial, em vez de apenas enviar/receber mensagens simples, vamos simular
 Alguns conceitos chave abordados:
 
 - Dispatch round-robin entre consumidores :contentReference[oaicite:3]{index=3}  
-- Acknowledgments manuais, para evitar perda de mensagens se um worker morrer durante o processamento :contentReference[oaicite:4]{index=4}  
-- Durabilidade de filas e mensagens (queue / message persistence) :contentReference[oaicite:5]{index=5}  
-- Pré-fetch / QoS para distribuição “justa” (fair dispatch) :contentReference[oaicite:6]{index=6}  
+- Acknowledgments manuais, para evitar perda de mensagens se um worker morrer durante o processamento  
+- Durabilidade de filas e mensagens (queue / message persistence)
+- Pré-fetch / QoS para distribuição “justa” (fair dispatch)
 
 ## Ferramentas utilizadas
 
@@ -18,22 +18,22 @@ Alguns conceitos chave abordados:
 - **PowerShell** (ou terminal) — para rodar scripts Python  
 - **RabbitMQ** — servidor de mensageria (local ou remoto)  
 - **Python 3** — linguagem para os scripts  
-- **Biblioteca pika** — cliente Python para comunicação com RabbitMQ :contentReference[oaicite:7]{index=7}  
+- **Biblioteca pika** — cliente Python para comunicação com RabbitMQ
 
 ## Estrutura dos scripts
 
 - **new_task.py** — envia uma mensagem para a fila `task_queue`.  
   - Declara a fila como durável (`queue_declare(... durable=True)`)  
-  - Publica a mensagem com `delivery_mode = pika.DeliveryMode.Persistent` para persistência :contentReference[oaicite:8]{index=8}  
+  - Publica a mensagem com `delivery_mode = pika.DeliveryMode.Persistent` para persistência
 
 - **worker.py** — consome mensagens da fila `task_queue`.  
   - Declara a fila durável  
-  - Usa `basic_qos(prefetch_count=1)` para não atribuir mais de uma tarefa não confirmada por vez a cada consumidor (fair dispatch) :contentReference[oaicite:9]{index=9}  
-  - Ao processar a mensagem (simulado com `time.sleep(...)`), envia `ch.basic_ack(...)` para confirmar que terminou. Se o worker morrer antes do `ack`, a mensagem volta para a fila. :contentReference[oaicite:10]{index=10}  
+  - Usa `basic_qos(prefetch_count=1)` para não atribuir mais de uma tarefa não confirmada por vez a cada consumidor (fair dispatch) 
+  - Ao processar a mensagem (simulado com `time.sleep(...)`), envia `ch.basic_ack(...)` para confirmar que terminou. Se o worker morrer antes do `ack`, a mensagem volta para a fila.
 
 ## Como executar
 
-1. Certifique-se que o RabbitMQ está instalado e rodando (por padrão em `localhost:5672`). :contentReference[oaicite:11]{index=11}  
+1. Certifique-se que o RabbitMQ está instalado e rodando (por padrão em `localhost:5672`). 
 2. Instale a biblioteca `pika` via pip:
 
    ```bash
