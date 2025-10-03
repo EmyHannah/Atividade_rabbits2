@@ -7,7 +7,7 @@ Este projeto segue o tutorial “Work Queues” do RabbitMQ, usando a biblioteca
 Neste tutorial, em vez de apenas enviar/receber mensagens simples, vamos simular tarefas “pesadas” (com duração baseada no número de “.” na mensagem) e distribuí-las entre múltiplos consumidores (workers). 
 Alguns conceitos chave abordados:
 
-- Dispatch round-robin entre consumidores :contentReference[oaicite:3]{index=3}  
+- Dispatch round-robin entre consumidores
 - Acknowledgments manuais, para evitar perda de mensagens se um worker morrer durante o processamento  
 - Durabilidade de filas e mensagens (queue / message persistence)
 - Pré-fetch / QoS para distribuição “justa” (fair dispatch)
